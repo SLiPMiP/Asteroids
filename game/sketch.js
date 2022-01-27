@@ -1,13 +1,14 @@
 let ship
 let asteroids = []
+let asteroiees = []
 let lasers = []
-let sample
+let sample 
 
 function setup() {
-    sample = loadSound('/sounds/Pew.mp3');
+    sample = loadSound('sounds/Pew.mp3/');
     createCanvas(windowWidth, windowHeight);
     ship = new Ship()
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 5; i++) {
         asteroids.push(new Asteroid())
     }
 }

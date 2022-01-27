@@ -3,7 +3,7 @@ var asteroids = []
 var lasers = []
 
 function setup() {
-    sample = loadSound('');
+    sample = loadSound('game/sounds/Pew.mp3');
     createCanvas(windowWidth, windowHeight);
     ship = new Ship()
     for (let i = 0; i < 1; i++) {
@@ -36,6 +36,7 @@ function draw() {
                         asteroids = asteroids.concat(newAsteroids)
                     }
                     asteroids.splice(j, 1)
+                    asteroids.push(new Asteroid())
                     lasers.splice(i, 1)
                     break
                 }
@@ -71,5 +72,6 @@ function keyPressed() {
         ship.boosting(true)
     } else if (keyCode == 32) {
         lasers.push(new laser(ship.pos, ship.heading))
+        sample.play()
     }
 }

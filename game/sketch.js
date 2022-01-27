@@ -1,9 +1,10 @@
-var ship
-var asteroids = []
-var lasers = []
+let ship
+let asteroids = []
+let lasers = []
+let sample
 
 function setup() {
-    sample = loadSound('game/sounds/Pew.mp3');
+    sample = loadSound('/sounds/Pew.mp3');
     createCanvas(windowWidth, windowHeight);
     ship = new Ship()
     for (let i = 0; i < 1; i++) {
@@ -14,7 +15,7 @@ function setup() {
 function draw() {
     background(0)
 
-    for (var i = 0; i < asteroids.length; i++) {
+    for (let i = 0; i < asteroids.length; i++) {
         if (ship.hits(asteroids[i])) {
             console.log('oops')
         }
@@ -23,20 +24,19 @@ function draw() {
         asteroids[i].edges()
     }
 
-    for (var i = lasers.length - 1; i >= 0; i--) {
+    for (let i = lasers.length - 1; i >= 0; i--) {
         lasers[i].render()
         lasers[i].update()
         if (lasers[i].offscreen()) {
             lasers.splice(i, 1)
         } else {
-            for (var j = asteroids.length - 1; j >= 0; j--) {
+            for (let j = asteroids.length - 1; j >= 0; j--) {
                 if (lasers[i].hits(asteroids[j])) {
                     if (asteroids[j].r > 25) {
-                        var newAsteroids = asteroids[j].breakup()
+                        let newAsteroids = asteroids[j].breakup()
                         asteroids = asteroids.concat(newAsteroids)
                     }
                     asteroids.splice(j, 1)
-                    asteroids.push(new Asteroid())
                     lasers.splice(i, 1)
                     break
                 }

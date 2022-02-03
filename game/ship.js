@@ -9,7 +9,6 @@ function Ship() {
     this.boosting = function(b) {
         this.isBoosting = b
     }
-
     this.update = function() {
         if (this.isBoosting) {
             this.boost()

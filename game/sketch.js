@@ -4,6 +4,9 @@ let asteroiees = []
 let lasers = []
 let sample
 let backstuff
+let asteroidPlus = 0
+let ruggedness = 3
+let asteroidAmount = 10
 
 function preload() {
     backstuff = loadSound("sounds/back.mp3");
@@ -15,7 +18,7 @@ function setup() {
     backstuff.loop()
     createCanvas(windowWidth, windowHeight);
     ship = new Ship()
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < asteroidAmount; i++) {
         asteroids.push(new Asteroid())
     }
 }
@@ -43,6 +46,7 @@ function draw() {
                     if (asteroids[j].r > 25) {
                         let newAsteroids = asteroids[j].breakup()
                         asteroids = asteroids.concat(newAsteroids)
+                        asteroids.push(new Asteroid())   
                     }
                     asteroids.splice(j, 1)
                     lasers.splice(i, 1)

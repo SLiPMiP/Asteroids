@@ -8,14 +8,14 @@ function Asteroid(pos, r) {
     if (r) {
         this.r = r * 0.5
     } else {
-        this.r = random(15, 50)
+        this.r = random(26, 50)
     }
 
     let velocity = p5.Vector.random2D()
     let Asteroidtotal = floor(random(5, 15))
     this.offset = []
     for (let i = 0; i < Asteroidtotal; i++) {
-        this.offset[i] = random(-this.r, this.r)
+        this.offset[i] = random(-this.r, this.r)/ruggedness
     }
 
     this.update = function () {

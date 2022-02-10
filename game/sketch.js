@@ -26,12 +26,12 @@ function setup() {
 function draw() {
     background(0)
     for (let i = 0; i < asteroids.length; i++) {
-        if (ship.hits(asteroids[i])) {
-            // noLoop();
-            // fill(230, 230, 230, 50);
-            // textSize(150);
-            // // text('man im dead', 200, 200, 20000, 2000);
-            // text('so bad', 350, 0, 20000, 2000);
+        if (ship.hits(asteroids[i])) {  
+            noLoop();
+            fill(230, 230, 230, 50);
+            textSize(150);
+            text('man im dead', 200, 200, 20000, 2000);
+            text('so bad', 350, 0, 20000, 2000);
         }
         asteroids[i].render()
         asteroids[i].update()

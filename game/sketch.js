@@ -1,11 +1,11 @@
 let ship
+let deaths = 0
 let asteroids = []
 let lasers = []
 let sample
 let backstuff
-let asteroidPlus = 0
-let ruggedness = 3
-let asteroidAmount = 10
+let ruggedness = 3 //higher = more round, lower = more spikey
+let asteroidAmount = 10 //amount of asteroids on the field at all times.
 
 function preload() {
     backstuff = loadSound("sounds/back.mp3");

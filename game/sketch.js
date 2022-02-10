@@ -26,13 +26,15 @@ function setup() {
 function draw() {
     background(0)
     for (let i = 0; i < asteroids.length; i++) {
-        if (ship.hits(asteroids[i])) {  
-            
+        if (ship.hits(asteroids[i])) {
+            console.log('oops')
             noLoop();
             fill(230, 230, 230, 50);
-            textSize(150);
-            text('man im dead', 200, 200, 20000, 2000);
-            text('so bad', 350, 0, 20000, 2000);
+            textSize(180);
+            textAlign(CENTER)
+            textAlign(CENTER)
+            text('you dead af', width/2, 470);
+            text('so bad', width/2, 200);
         }
         asteroids[i].render()
         asteroids[i].update()
@@ -65,7 +67,7 @@ function draw() {
     ship.update()
     ship.edges()
 
-    rect(0, 0, windowWidth, windowHeight)
+    rect(0, 0, width, height)
 }
 
 function keyReleased() {

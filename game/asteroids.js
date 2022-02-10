@@ -15,7 +15,7 @@ function Asteroid(pos, r) {
     let Asteroidtotal = floor(random(5, 15))
     this.offset = []
     for (let i = 0; i < Asteroidtotal; i++) {
-        this.offset[i] = random(-this.r, this.r)/ruggedness
+        this.offset[i] = random(-this.r, this.r) / ruggedness
     }
 
     this.update = function () {
@@ -29,16 +29,16 @@ function Asteroid(pos, r) {
         noFill()
         beginShape()
         for (let i = 0; i < Asteroidtotal; i++) {
-            var angle = map(i, 0, Asteroidtotal, 0, TWO_PI)
-            var r = this.r + this.offset[i]
-            var x = r * cos(angle)
-            var y = r * sin(angle)
+            let angle = map(i, 0, Asteroidtotal, 0, TWO_PI)
+            let r = this.r + this.offset[i]
+            let x = r * cos(angle)
+            let y = r * sin(angle)
             vertex(x, y)
         }
         endShape(CLOSE)
 
         this.breakup = function () {
-            var newA = []
+            let newA = []
             newA[0] = new Asteroid(this.pos, this.r)
             newA[1] = new Asteroid(this.pos, this.r)
             return newA

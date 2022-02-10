@@ -1,12 +1,11 @@
 let ship
+let deaths = 0
 let asteroids = []
-let asteroiees = []
 let lasers = []
 let sample
 let backstuff
-let asteroidPlus = 0
-let ruggedness = 3
-let asteroidAmount = 10
+let ruggedness = 3 //higher = more round, lower = more spikey
+let asteroidAmount = 10 //amount of asteroids on the field at all times.
 
 function preload() {
     backstuff = loadSound("sounds/back.mp3");
@@ -28,12 +27,11 @@ function draw() {
     background(0)
     for (let i = 0; i < asteroids.length; i++) {
         if (ship.hits(asteroids[i])) {
-            console.log('oops')
-            noLoop();
-            fill(230, 230, 230, 50);
-            textSize(180);
-            text('you dead af', 200, 200, 20000, 2000);
-            text('so bad', 350, 0, 20000, 2000);
+            // noLoop();
+            // fill(230, 230, 230, 50);
+            // textSize(150);
+            // // text('man im dead', 200, 200, 20000, 2000);
+            // text('so bad', 350, 0, 20000, 2000);
         }
         asteroids[i].render()
         asteroids[i].update()
@@ -66,7 +64,7 @@ function draw() {
     ship.update()
     ship.edges()
 
-    rect(0, 0, 10000, 10000)
+    rect(0, 0, windowWidth, windowHeight)
 }
 
 function keyReleased() {
@@ -92,5 +90,7 @@ function keyPressed() {
     } else if (keyCode == 32) {
         lasers.push(new laser(ship.pos, ship.heading))
         sample.play()
-    }
+    } else if (keyCode == 65) {
+        console.log(asteroids[2].breakup())
+    } 
 }

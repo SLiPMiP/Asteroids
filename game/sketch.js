@@ -90,7 +90,5 @@ function keyPressed() {
     } else if (keyCode == 32) {
         lasers.push(new laser(ship.pos, ship.heading))
         sample.play()
-    } else if (keyCode == 65) {
-        console.log(asteroids[2].breakup())
-    } 
+    }
 }

@@ -27,6 +27,7 @@ function draw() {
     background(0)
     for (let i = 0; i < asteroids.length; i++) {
         if (ship.hits(asteroids[i])) {  
+            
             noLoop();
             fill(230, 230, 230, 50);
             textSize(150);

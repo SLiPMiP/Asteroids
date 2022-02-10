@@ -1,6 +1,5 @@
 let ship
 let asteroids = []
-let asteroiees = []
 let lasers = []
 let sample
 let backstuff

@@ -9,10 +9,10 @@ let asteroidAmount = 10 //amount of asteroids on the field at all times.
 
 function preload() {
     backstuff = loadSound("sounds/back.mp3");
+    sample = loadSound('sounds/Pew.mp3');
 }
 
 function setup() {
-    sample = loadSound('sounds/Pew.mp3');
     backstuff.play()
     backstuff.loop()
     createCanvas(windowWidth, windowHeight);

@@ -16,7 +16,6 @@ function keyPressed() {
     } else if (keyCode == 32) {
         shooting = true
         shootthing = millis()
-        console.log(shootthing)
         lasers.push(new laser(ship.pos, ship.heading))
         sample.play()
     }
@@ -56,7 +55,6 @@ function Controls() {
             lasers.push(new laser(ship.pos, ship.heading))
             sample.play()
             shootthing = millis()
-            console.log("shot")
         }
     }
 }

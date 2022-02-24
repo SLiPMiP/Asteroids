@@ -18,11 +18,11 @@ function Asteroid(pos, r) {
         this.offset[i] = random(-this.r, this.r) / ruggedness
     }
 
-    this.update = function () {
+    this.update = function() {
         this.pos.add(velocity)
     }
 
-    this.render = function () {
+    this.render = function() {
         push()
         translate(this.pos.x, this.pos.y)
         stroke(255)
@@ -37,14 +37,14 @@ function Asteroid(pos, r) {
         }
         endShape(CLOSE)
 
-        this.breakup = function () {
+        this.breakup = function() {
             let newA = []
             newA[0] = new Asteroid(this.pos, this.r)
             newA[1] = new Asteroid(this.pos, this.r)
             return newA
         }
 
-        this.edges = function () {
+        this.edges = function() {
             if (this.pos.x > width + this.r) {
                 this.pos.x = -this.r
             } else if (this.pos.x < -this.r) {

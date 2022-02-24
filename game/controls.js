@@ -2,10 +2,9 @@ let turnspeedmultiplier = 1
 let turnspeed = 0.07 * turnspeedmultiplier
 let turnright = false
 let turnleft = false
-let shoot = false
-
-// lasers.push(new laser(ship.pos, ship.heading))
-//         sample.play()
+let shooting = false
+let shootthing = 0
+let attackspeed = 200 //time in ms between attacks
 
 function keyPressed() {
     if (keyCode == LEFT_ARROW) {
@@ -15,9 +14,14 @@ function keyPressed() {
     } else if (keyCode == UP_ARROW) {
         ship.boosting(true)
     } else if (keyCode == 32) {
-        shoot = true
+        shooting = true
+        shootthing = millis()
+        console.log(shootthing)
+        lasers.push(new laser(ship.pos, ship.heading))
+        sample.play()
     }
 }
+
 
 function keyReleased() {
     if (keyCode == LEFT_ARROW) {
@@ -31,7 +35,9 @@ function keyReleased() {
     if (keyCode == UP_ARROW) {
         ship.boosting(false)
     }
-    shoot = false
+    if (keyCode == 32) {
+        shooting = false
+    }
 }
 
 
@@ -44,5 +50,13 @@ function Controls() {
     }
     if (turnright & turnleft) {
         ship.setRotation(0)
+    }
+    if (shooting) {
+        if (millis() > shootthing + attackspeed) {
+            lasers.push(new laser(ship.pos, ship.heading))
+            sample.play()
+            shootthing = millis()
+            console.log("shot")
+        }
     }
 }

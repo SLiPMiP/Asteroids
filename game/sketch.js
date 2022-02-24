@@ -70,4 +70,5 @@ function draw() {
     rect(0, 0, width, height)
 
     Controls()
+
 }

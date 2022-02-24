@@ -27,14 +27,14 @@ function draw() {
     background(0)
     for (let i = 0; i < asteroids.length; i++) {
         if (ship.hits(asteroids[i])) {
-            console.log('oops')
+            console.log('Death')
             noLoop();
             fill(230, 230, 230, 50);
             textSize(180);
             textAlign(CENTER)
             textAlign(CENTER)
-            text('you dead af', width/2, 470);
-            text('so bad', width/2, 200);
+            text('you dead af', width / 2, 470);
+            text('so bad', width / 2, 200);
         }
         asteroids[i].render()
         asteroids[i].update()
@@ -52,7 +52,7 @@ function draw() {
                     if (asteroids[j].r > 25) {
                         let newAsteroids = asteroids[j].breakup()
                         asteroids = asteroids.concat(newAsteroids)
-                        asteroids.push(new Asteroid())   
+                        asteroids.push(new Asteroid())
                     }
                     asteroids.splice(j, 1)
                     lasers.splice(i, 1)
@@ -68,30 +68,6 @@ function draw() {
     ship.edges()
 
     rect(0, 0, width, height)
-}
 
-function keyReleased() {
-    if (keyCode == RIGHT_ARROW) {
-        ship.setRotation(0)
-    }
-    if (keyCode == LEFT_ARROW) {
-        ship.setRotation(0)
-    }
-    if (keyCode == UP_ARROW) {
-        ship.boosting(false)
-    }
-    if (keyCode == 32) {}
-}
-
-function keyPressed() {
-    if (keyCode == RIGHT_ARROW) {
-        ship.setRotation(0.07)
-    } else if (keyCode == LEFT_ARROW) {
-        ship.setRotation(-0.07)
-    } else if (keyCode == UP_ARROW) {
-        ship.boosting(true)
-    } else if (keyCode == 32) {
-        lasers.push(new laser(ship.pos, ship.heading))
-        sample.play()
-    }
+    Controls()
 }

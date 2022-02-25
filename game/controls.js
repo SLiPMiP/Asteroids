@@ -41,15 +41,14 @@ function keyReleased() {
 
 
 function Controls() {
-    if (turnleft) {
-        ship.setRotation(-turnspeed)
-    }
-    if (turnright) {
-        ship.setRotation(turnspeed)
-    }
     if (turnright & turnleft) {
         ship.setRotation(0)
+    } else if (turnleft) {
+        ship.setRotation(-turnspeed)
+    } else if (turnright) {
+        ship.setRotation(turnspeed)
     }
+
     if (shooting) {
         if (millis() > shootthing + attackspeed) {
             lasers.push(new laser(ship.pos, ship.heading))
